@@ -1,11 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="Questionnaire">
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
     <script src="app.js"></script>
 </head>
 
-<body>
+<body ng-controller="QuestionController">
+    <h1>Questionnaire</h1>
+
+    <label for="guess"></label>
+    <input type="text" ng-model="guess" placeholder="Take a guess.">
     
+    <button ng-click="nextQuestion()">Submit Answer</button>
+
+    <h3>Question: {{ question }}</h3>
+    <h3>Score : {{ score }}</h3>
+
+    <ol>
+        <li ng-repeat="element in guessHistory">{{ element.theGuess }}
+             <ul>
+                 <li>{{ element.correct }}</li>
+             </ul>
+        </li>
+    </ol>
 </body>
 </html>
